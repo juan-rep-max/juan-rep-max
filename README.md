@@ -1,4 +1,4 @@
-# juan-rep-max
+# JUAN-REP-MAX
 
 * JUAN THE KING IS NOW AN APP.  
 
