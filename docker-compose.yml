@@ -1,0 +1,31 @@
+version: "3"
+
+services: 
+  graphile: 
+    image: graphile/postgraphile
+    command:  
+      - '--connection=postgres://postgres:password@juandb:5432/juandb'
+      - '--schema=juandb'
+      - '--watch'
+    ports: 
+      - 5000:5000
+  juandb:
+    image: postgres
+    environment:
+      POSTGRESS_PASSWORD: password
+      
+    volumes: 
+      - 'juandb:/var/lib/postgresql/data'
+  pgadmin:
+    image: dpage/pgadmin4
+    environment: 
+      PGADMIN_DEFAULT_EMAIL: 'ben.monro@gmail.com'
+      PGADMIN_DEFAULT_PASSWORD: password
+    volumes:
+      - "pgadmin:/var/lib/pgadmin"
+    ports:
+      - 8080:80
+
+volumes:
+  juandb:
+  pgadmin:
